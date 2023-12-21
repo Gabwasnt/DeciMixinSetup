@@ -1,0 +1,6 @@
+.gradle
+build/
+*.txt
+mainclass.txt
+/minecraft-debug/
+/.idea/

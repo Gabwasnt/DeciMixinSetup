@@ -1,0 +1,16 @@
+[
+{
+  "modid": "deci_addon",
+  "name": "DeciAddon",
+  "description": "Community Addon to Decimation.",
+  "version": "$version",
+  "mcversion": "$mcversion",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["G_ab"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
