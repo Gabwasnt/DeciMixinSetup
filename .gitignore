@@ -2,5 +2,5 @@
 build/
 *.txt
 mainclass.txt
-/minecraft-debug/
 /.idea/
+/minecraft-debug/

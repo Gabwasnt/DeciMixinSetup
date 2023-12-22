@@ -26,7 +26,7 @@ public class Addon {
     @Mod.Instance(MOD_ID)
     public static Addon instance;
 
-    @SidedProxy(clientSide = "net.gabwasnt.deci_addon.proxy.ClientProxy", serverSide = "net.gabwasnt.decimated.proxy.CommonProxy")
+    @SidedProxy(clientSide = "net.gabwasnt.deci_addon.proxy.ClientProxy", serverSide = "net.gabwasnt.deci_addon.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler

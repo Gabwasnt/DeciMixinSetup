@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "net.gabwasnt.deci_addon.mixins",
+  "refmap": "mixins.deci_addon.refmap.json",
+  "verbose": true,
+  "mixins": [
+    "MixinTest"
+  ],
+  "client": [
+    "MixinTest"
+  ]
+}
