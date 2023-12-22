@@ -1,4 +1,4 @@
-package net.gabwasnt.deci_addon;
+package net.hcml.community_relaunched;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -7,8 +7,8 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import net.gabwasnt.deci_addon.network.PacketDispatcher;
-import net.gabwasnt.deci_addon.proxy.CommonProxy;
+import net.hcml.community_relaunched.network.PacketDispatcher;
+import net.hcml.community_relaunched.proxy.CommonProxy;
 import net.minecraft.client.Minecraft;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,7 +17,7 @@ import java.io.File;
 
 @Mod(modid = Addon.MOD_ID, version = Addon.MOD_VERSION)
 public class Addon {
-    public static final String MOD_ID = "deci_addon";
+    public static final String MOD_ID = "community_relaunched";
     public static final String MOD_NAME = "DeciAddon";
     public static final String MOD_VERSION = "1.0.0";
 
@@ -26,7 +26,7 @@ public class Addon {
     @Mod.Instance(MOD_ID)
     public static Addon instance;
 
-    @SidedProxy(clientSide = "net.gabwasnt.deci_addon.proxy.ClientProxy", serverSide = "net.gabwasnt.deci_addon.proxy.CommonProxy")
+    @SidedProxy(clientSide = "net.hcml.community_relaunched.proxy.ClientProxy", serverSide = "net.hcml.community_relaunched.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler
@@ -60,7 +60,7 @@ public class Addon {
     }
 
     public static File getDirectory() {
-        File dir = new File(Minecraft.getMinecraft().mcDataDir, "deci_addon");
+        File dir = new File(Minecraft.getMinecraft().mcDataDir, "community_relaunched");
         dir.mkdir();
         return dir;
     }

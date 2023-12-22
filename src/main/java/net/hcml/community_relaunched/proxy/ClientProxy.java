@@ -1,4 +1,4 @@
-package net.gabwasnt.deci_addon.proxy;
+package net.hcml.community_relaunched.proxy;
 
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import net.minecraft.client.Minecraft;

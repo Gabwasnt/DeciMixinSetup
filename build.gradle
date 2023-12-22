@@ -39,7 +39,7 @@ configurations {
 }
 
 dependencies {
-    //compile fileTree(dir: "libs", includes: ["*.jar"])
+    compile fileTree(dir: "libs", includes: ["*.jar"])
 }
 
 minecraft {
@@ -60,7 +60,9 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         include "mcmod.info"
                 
-        expand "version" : project.version, "mcversion" : project.minecraft.version
+        expand "version" : project.version, "mcversion" : project.minecraft.version,
+                "authorlist" : project.mod_authors, "modid":mod_id,
+                "description":mod_description,"name":mod_name,"credits":mod_credits
     }
         
     from(sourceSets.main.resources.srcDirs) {
@@ -85,8 +87,8 @@ shadowJar {
     }
 }
 
-def yourMixinConfig = 'mixins.deci_addon.json'
-def refMapForYourConfig = 'mixins.deci_addon.refmap.json'
+def yourMixinConfig = 'mixins.community_relaunched.json'
+def refMapForYourConfig = 'mixins.community_relaunched.refmap.json'
 def relativePathToMixinAP = 'tools/mixin-0.8-SNAPSHOT.jar'
 
 repositories {

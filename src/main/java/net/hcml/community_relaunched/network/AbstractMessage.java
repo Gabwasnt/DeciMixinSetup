@@ -1,4 +1,4 @@
-package net.gabwasnt.deci_addon.network;
+package net.hcml.community_relaunched.network;
 
 import com.google.common.base.Throwables;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
 import io.netty.buffer.ByteBuf;
-import net.gabwasnt.deci_addon.Addon;
+import net.hcml.community_relaunched.Addon;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.Packet;
 import net.minecraft.network.PacketBuffer;
