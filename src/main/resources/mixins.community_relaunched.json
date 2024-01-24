@@ -1,13 +1,16 @@
 {
   "required": true,
   "compatibilityLevel": "JAVA_8",
-  "package": "net.hcml.community_relaunched.mixins",
+  "package": "net.hcml.community_relaunched.mixin.mixins",
+  "plugin": "net.hcml.community_relaunched.mixin.MixinPlugin",
   "refmap": "mixins.community_relaunched.refmap.json",
   "verbose": true,
   "mixins": [
-    "MixinTest"
+    "ServerListMixin"
   ],
   "client": [
-    "MixinTest"
-  ]
+  ],
+  "server": [
+  ],
+  "minVersion": "0.7"
 }

@@ -10,8 +10,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void preInit() {
         super.preInit();
-        RenderPlayer.NAME_TAG_RANGE = 6.0F;
-        RenderPlayer.NAME_TAG_RANGE_SNEAK = 0F;
     }
 
     @Override

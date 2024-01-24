@@ -13,6 +13,7 @@ buildscript {
         maven {
             url = "https://jitpack.io"
         }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
     }
     dependencies {
         classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.0.+') {
@@ -39,7 +40,7 @@ configurations {
 }
 
 dependencies {
-    compile fileTree(dir: "libs", includes: ["*.jar"])
+    implementation fileTree(dir: "deci", includes: ["*.jar"])
 }
 
 minecraft {
@@ -61,8 +62,8 @@ processResources {
         include "mcmod.info"
                 
         expand "version" : project.version, "mcversion" : project.minecraft.version,
-                "authorlist" : project.mod_authors, "modid":mod_id,
-                "description":mod_description,"name":mod_name,"credits":mod_credits
+                "authorlist" : project.mod_authors, "modid":project.mod_id,
+                "description":project.mod_description,"name":project.mod_name,"credits":project.mod_credits
     }
         
     from(sourceSets.main.resources.srcDirs) {
@@ -115,10 +116,11 @@ def mixinSrg = "${tasks.reobf.temporaryDir}" + File.separator + "mixins.srg"
 shadowJar {
     from refMap
     manifest {
-        attributes.put("TweakClass", "org.spongepowered.asm.launch.MixinTweaker")
+        attributes.put("MixinConfigs", yourMixinConfig)
         attributes.put("FMLCorePluginContainsFMLMod", true)
         attributes.put("ForceLoadAsMod", true)
-        attributes.put("MixinConfigs", yourMixinConfig)
+        //attributes.put("FMLCorePlugin","${mod_group}.mixin.CorePlugin")
+        attributes.put("TweakClass", "org.spongepowered.asm.launch.MixinTweaker")
     }
 }
 
