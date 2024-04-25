@@ -16,7 +16,7 @@ buildscript {
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
     }
     dependencies {
-        classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.0.+') {
+        classpath('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
             changing = true
         }
         classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.2'
@@ -28,7 +28,7 @@ apply plugin: 'idea'
 apply plugin: "com.github.johnrengelman.shadow"
 
 version = mod_version
-group= mod_group
+group = mod_group
 archivesBaseName = mod_id
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -60,12 +60,12 @@ processResources {
 
     from(sourceSets.main.resources.srcDirs) {
         include "mcmod.info"
-                
-        expand "version" : project.version, "mcversion" : project.minecraft.version,
-                "authorlist" : project.mod_authors, "modid":project.mod_id,
-                "description":project.mod_description,"name":project.mod_name,"credits":project.mod_credits
+
+        expand "version": project.version, "mcversion": project.minecraft.version,
+                "authorlist": project.mod_authors, "modid": project.mod_id,
+                "description": project.mod_description, "name": project.mod_name, "credits": project.mod_credits
     }
-        
+
     from(sourceSets.main.resources.srcDirs) {
         exclude "mcmod.info"
     }
@@ -119,7 +119,7 @@ shadowJar {
         attributes.put("MixinConfigs", yourMixinConfig)
         attributes.put("FMLCorePluginContainsFMLMod", true)
         attributes.put("ForceLoadAsMod", true)
-        attributes.put("FMLCorePlugin","${mod_group}.mixin.CorePlugin")
+        attributes.put("FMLCorePlugin", "${mod_group}.mixin.CorePlugin")
         attributes.put("TweakClass", "org.spongepowered.asm.launch.MixinTweaker")
     }
 }
@@ -130,9 +130,9 @@ reobf {
 
 afterEvaluate {
     def fixedRelPathToAP = relativePathToMixinAP
-    if(fixedRelPathToAP.startsWith('./') || fixedRelPathToAP.startsWith('.\\')){
+    if (fixedRelPathToAP.startsWith('./') || fixedRelPathToAP.startsWith('.\\')) {
         fixedRelPathToAP = fixedRelPathToAP.substring(2)
-    } else if(fixedRelPathToAP.startsWith('/') || fixedRelPathToAP.startsWith('\\')){
+    } else if (fixedRelPathToAP.startsWith('/') || fixedRelPathToAP.startsWith('\\')) {
         fixedRelPathToAP = fixedRelPathToAP.substring(1)
     }
 
@@ -142,11 +142,12 @@ afterEvaluate {
                 // There's a bug in the AnnotationProcessor for 0.7.11 that will generate the annotations pointing to the parent class instead of subclass
                 // resulting in the mixin not being applied.  This is fixed in 0.8, however 0.8 needs guava > 21.0, and minecraft ships with 17.0.
                 // So as a hacky workaround... ship with 0.7.11, but use the AP from 0.8 for compiling
-                "-processorpath", projectDir.absolutePath + '/' + fixedRelPathToAP,
+
                 "-processor", "org.spongepowered.tools.obfuscation.MixinObfuscationProcessorInjection,org.spongepowered.tools.obfuscation.MixinObfuscationProcessorTargets",
                 "-Xlint:-sunapi", "-XDenableSunApiLintControl", "-XDignore.symbol.file",
                 "-AreobfSrgFile=${tasks.reobf.srg}", "-AoutSrgFile=${mixinSrg}", "-AoutRefMapFile=${refMap}"
         ]
+        options.annotationProcessorPath = files(projectDir.absolutePath + '/' + fixedRelPathToAP)
     }
 }
 
