@@ -65,7 +65,7 @@ processResources {
                 "authorlist": project.mod_authors, "modid": project.mod_id,
                 "description": project.mod_description, "name": project.mod_name, "credits": project.mod_credits
     }
-
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     from(sourceSets.main.resources.srcDirs) {
         exclude "mcmod.info"
     }
